@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: ubuntu:20.04
+
+%post
+
+  apt update
+
+  # set timezone in a non-interactive way
+  TZ=Europe/Dublin DEBIAN_FRONTEND=noninteractive apt install tzdata
+  ln -fs /usr/share/zoneinfo/Europe/Dublin /etc/localtime
+  dpkg-reconfigure --frontend noninteractive tzdata
+
+  # install imagemagick and GNU parallel
+  apt install -y imagemagick parallel
+
+%labels
+
+  Author Saravanabalagi Ramachandran
+  Email saravanabalagi@hotmail.com
+  Repo https://github.com/saravanabalagi/singularity_imagemagick
+  Version v0.1
+
+%help
+
+  This is an imagemagick container with parallel support for performing image operations like resize, convert image type, etc.
+  For more details or for filing issues, please visit https://github.com/saravanabalagi/singularity_imagemagick
