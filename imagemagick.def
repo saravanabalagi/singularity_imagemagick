@@ -6,7 +6,7 @@ From: ubuntu:20.04
   apt update
 
   # set timezone in a non-interactive way
-  TZ=Europe/Dublin DEBIAN_FRONTEND=noninteractive apt install tzdata
+  TZ=Europe/Dublin DEBIAN_FRONTEND=noninteractive apt install -y tzdata
   ln -fs /usr/share/zoneinfo/Europe/Dublin /etc/localtime
   dpkg-reconfigure --frontend noninteractive tzdata
 
